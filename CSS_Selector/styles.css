@@ -1,0 +1,119 @@
+/* HTML 문서 전체를 선택 */
+* {
+  color: black;
+}
+
+/* attribute selector
+[속성]: attr 속성을 가지는 모든 태그(요소) */
+
+[value] {
+  color: red;
+}
+
+[value="blue"] {
+  color: blue;
+}
+
+/* 
+후손 셀렉터(Descendant Selector): 스페이스로 표시
+부모 태그 안에 있는 모든 하위 태그를 하위 요소, 후손 요소라고 부름
+부모 태그(selector1) 안에 있는 모든 태그 중에 selector2를 선택 
+*/
+selector1 selector2
+h1 {
+  color: black;
+}
+div span {
+  color: royalblue;
+}
+
+
+/* 
+자식 셀렉터 > 로 표시
+부모 태그(selector1) 안에 있는 바로 다음 레벨의 태그 중에 selector2를 선택
+
+selector1 > selector2 
+div>p를 div>span으로 바꿔보기
+*/
+
+h1.first {
+  color: black ;
+}
+
+div.first> p {
+  color: aqua;
+} 
+
+div.first> p > span {
+  color: green
+}
+
+/* 
+인접 형제 셀렉터(Adjacent Sibling Selector): +로 표시 태그(selector1)와 동일 레벨에 위치하고, selector1의 바로 뒤에 위치하는 selector2를 선택
+-즉 selector1 과 selector2 사이에 다른 태그 위치시 선택 안됨 
+*/
+
+h1.second + h2 {
+  color: yellow;
+}
+
+/* 
+일반 형제 셀렉터:~로 표시
+태그(selector1)와 동일 레벨에 위치하고, selector1의 뒤에 위치하는 selector2를 선택 즉, selector1과 selector2 사이에 다른 태그가 위치해도 선택 가능 
+*/
+
+h1.third ~ p {
+  color: orange;
+}
+
+a:link {
+  color: red;
+}
+
+a:visited {
+  color: blue;
+}
+
+a:hover {
+  color: green;
+}
+
+a:active {
+  color: gray;
+}
+
+input:focus {
+  color: brown;
+}
+
+input[type="radio"]:indeterminate + span { color: red; }
+input[type="radio"]:checked + span { color: orange; }
+input[type="checkbox"]:enabled + span { color: blue; }
+input[type="checkbox"]:disabled + span { color: green; }
+
+/* 
+부정 셀렉터(Negation Pseudo-Class)
+not(셀렉터) - 셀렉터에 해당하지 않는 모든 요소 선택
+테스트 : css Negation Pseudo-Class selector 
+*/
+
+h2:not(.dave) { color:red; } 
+
+
+/* 
+가상 요소 셀렉터(Pseudo-Element Selector)
+선택한 요소 안의 특정 부분을 선택 (예:특정 요소의 첫 글자, 마지막 글자 등)
+first-letter: 요소의 첫 글자 선택
+first-line: 요소의 첫 라인(줄) 선택(주의:block 요소에만 적용가능.block/inline 요소는 별도 챕터에서 설명)
+after: 요소의 뒤에 위치하는 공간 선택, content프로퍼티(property)와 함께 사용
+before: 요소의 앞에 위치하는 공간 선택, content프로퍼티(property)와 함께 사용
+selection: 요소에서 드래그한 부분을 선택, iOS Safari 에서 호환안될 수도 있음(버전업이 되면서, PC용 Safari에서는 정상 동작) 
+*/
+
+/* 다른 가상 셀렉터와 달리 두개의 콜론(::)을 사용함 */
+
+h3::before { content: "잔재미코딩: "; color: indigo; }
+h3::after { content: " by Dave Lee: "; color: indigo; }
+p::first-letter { font-size: 2em; }
+p::first-line { font-size: 1.2em; }
+p::selection { background-color: lightyellow; }

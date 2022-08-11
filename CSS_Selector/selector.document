@@ -1,0 +1,7 @@
+HTML 문서의 특정 부분에 대해 헨더링 방법을 정의하기 위해서는 특정 부분을 선택할 수 있어야 함
+
+CSS Selector 는 이런 특정 부분을 선택하기 위한 문법
+CSS Selector 로 HTML 문서 특정 부분을 정의한 구문을 Rule Set 라고 부르며, 이와 같은 Rule Set 집합을 Style Sheet 라고 부름
+
+property와 각 property별 설정 가능한 value는 미리 정의되어 있음
+
